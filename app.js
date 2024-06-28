@@ -8,7 +8,14 @@ const apiKey = process.env.API_KEY;
 
 // Initialize Google Generative AI instance
 const genAI = new GoogleGenerativeAI(apiKey);
-app.use(cors());
+const corsOptions = {
+  origin: 'https://counsellor-frontend.vercel.app',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+  credentials: true, // Enable credentials (cookies, authorization headers)
+};
+
+app.use(cors(corsOptions));
 
 // Middleware to parse JSON request body
 app.use(express.json());
