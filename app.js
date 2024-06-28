@@ -1,5 +1,6 @@
 const express = require('express');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -7,6 +8,7 @@ const apiKey = process.env.API_KEY;
 
 // Initialize Google Generative AI instance
 const genAI = new GoogleGenerativeAI(apiKey);
+app.use(cors());
 
 // Middleware to parse JSON request body
 app.use(express.json());
@@ -30,7 +32,7 @@ app.post('/generate-story', async (req, res) => {
     const response =  result.response;
     const text =  response.text();
 
-    res.json({ story: text });
+    res.json({ Response: text });
   } catch (error) {
     console.error('Error generating story:', error);
     res.status(500).json({ error: 'Failed to generate story' });

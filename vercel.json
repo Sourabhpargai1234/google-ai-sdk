@@ -7,6 +7,6 @@
       { "src": "/generate-story", "dest": "/app.js" },
       { "src": "/", "dest": "/app.js" }
     ]
-  }
+}
   
   
