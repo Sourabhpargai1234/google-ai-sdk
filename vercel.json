@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "app.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/generate-story", "dest": "/app.js" }
+    ],
+    "env": {
+      "API_KEY": "AIzaSyCv4fZkuWD-iRbpRWmzK0vsvdx8ed6fL_E"
+    }
+  }
+  
