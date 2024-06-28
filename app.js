@@ -10,6 +10,9 @@ const genAI = new GoogleGenerativeAI(apiKey);
 
 // Middleware to parse JSON request body
 app.use(express.json());
+app.get('/', (req, res) => {
+    res.send('Model deployment successful!');
+  });
 
 // Define a route for generating content
 app.post('/generate-story', async (req, res) => {
